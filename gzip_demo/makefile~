@@ -1,0 +1,3 @@
+gzip_demo: gzip_demo.c
+	gzip -c gzip_demo.c > gzip_data.gz
+	gcc -o gzip_demo gzip_demo.c -lz -g
