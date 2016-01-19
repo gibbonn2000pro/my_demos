@@ -1,7 +1,6 @@
 import time
 
 
-
 class Window(list):
     def __init__(self):
         super(Window, self).__init__()
