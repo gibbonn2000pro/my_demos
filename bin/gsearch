@@ -1,0 +1,20 @@
+#!/bin/sh
+
+function search_file() {
+    File=$1
+    Reg=$2
+    Content=`cat $File | grep $Reg`
+    if [[ ${#Content} -gt 0 ]]; then
+        echo -e "\033[32;49;1m${File}\033[39;49;0m"
+        nl $File | grep --color $Reg
+    fi
+}
+
+Dir=$1
+Reg=$2
+
+for D in `find $Dir`; do
+    if [[ ! -d $D ]]; then
+        search_file $D $Reg
+    fi
+done
